@@ -1,16 +1,16 @@
 from abc import ABC, abstractmethod
 import math
 
-class Forma(ABC):
+class Forma(ABC):# classe astratta padre
     @abstractmethod
-    def area(self):
+    def area(self): # calcola l'area 
         pass
 
     @abstractmethod
-    def perimetro(self):
+    def perimetro(self): # calcola il perimetro
         pass
 
-class Cerchio(Forma):
+class Cerchio(Forma): # classe cerchio
     def __init__(self, raggio):
         self.raggio = raggio
 
@@ -20,7 +20,7 @@ class Cerchio(Forma):
     def perimetro(self):
         return 2 * math.pi * self.raggio
 
-class Rettangolo(Forma):
+class Rettangolo(Forma): # classe rettangolo
     def __init__(self, base, altezza):
         self.base = base
         self.altezza = altezza
@@ -31,7 +31,7 @@ class Rettangolo(Forma):
     def perimetro(self):
         return 2 * (self.base + self.altezza)
 
-class Triangolo(Forma):
+class Triangolo(Forma): # classe triangolo
     def __init__(self, lato1, lato2, lato3):
         self.lato1 = lato1
         self.lato2 = lato2
@@ -46,6 +46,7 @@ class Triangolo(Forma):
 
 forme = []
 
+# Funzioni per la gestione delle forme
 def crea_forma():
     print("Scegli una forma:")
     print("1. Cerchio")

@@ -23,7 +23,7 @@ class Veicolo: #classe veicolo, classe padre
     def set_revisione(self, revisione):
         self._revisione = revisione
     
-    def descrivi(self):
+    def descrivi(self): # classe da sovrascrivere
         pass
 
 class Auto(Veicolo):# classe auto
