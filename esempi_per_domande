@@ -1,0 +1,100 @@
+QUI I CODICI NON SONO COMPLETI MA SERVONO SOLO COME ESEMPI.
+ESEMPIO DOMANDE SCRITTE PER ASTRAZIONE PIU LE TRE REGOLE DELL`OOP
+ESER 3:
+class Forma(ABC):# classe astratta padre
+    @abstractmethod
+    def area(self): # calcola l'area 
+        pass
+
+    @abstractmethod
+    def perimetro(self): # calcola il perimetro
+        pass
+
+class Cerchio(Forma): # classe cerchio
+    def __init__(self, raggio):
+        self.raggio = raggio
+
+    def area(self):
+        return math.pi * (self.raggio ** 2)
+
+    def perimetro(self):
+        return 2 * math.pi * self.raggio
+
+class Rettangolo(Forma): # classe rettangolo
+    def __init__(self, base, altezza):
+        self.base = base
+        self.altezza = altezza
+
+
+
+    def area(self):
+        return self.base * self.altezza
+
+    def perimetro(self):
+        return 2 * (self.base + self.altezza)
+
+ESER 1:
+class Veicolo: #classe veicolo, classe padre
+    def __init__(self, marca, anno, targa, revisione):
+        self._marca = marca
+        self._anno = anno
+        self._targa = targa
+        self._revisione = revisione
+    
+    def get_marca(self):
+        return self._marca
+    def set_marca(self, marca):
+        self._marca = marca
+    def get_anno(self):
+        return self._anno
+    def set_anno(self, anno):
+        self._anno = anno
+    def get_targa(self):
+        return self._targa
+    def set_targa(self, targa):
+        self._targa = targa
+    def get_revisione(self):
+        return self._revisione
+    def set_revisione(self, revisione):
+        self._revisione = revisione
+    
+    def descrivi(self): # classe da sovrascrivere
+        pass
+
+class Auto(Veicolo):# classe auto
+    def __init__(self, marca, anno, targa, revisione, porte):
+        super().__init__(marca, anno, targa, revisione)
+        self.__porte = porte
+    
+    def get_porte(self):
+        return self.__porte
+    def set_porte(self, porte):
+        self.__porte = porte
+    
+    def descrivi(self):
+        return f"Auto: {self.get_marca()}, {self.get_anno()}, {self.get_targa()}, {self.get_revisione()}, {self.get_porte()} porte"  
+        
+class Moto(Veicolo):# classe moto
+    def __init__(self, marca, anno, targa, revisione, cilindrata):
+        super().__init__(marca, anno, targa, revisione)
+        self.__cilindrata = cilindrata
+    
+    def get_cilindrata(self):
+        return self.__cilindrata
+    def set_cilindrata(self, cilindrata):
+        self.__cilindrata = cilindrata
+    
+    def descrivi(self):
+        return f"Moto: {self.get_marca()}, {self.get_anno()}, {self.get_targa()}, {self.get_revisione()}, {self.get_cilindrata()} cc"
+    
+class Camion(Veicolo):# classe camion
+    def __init__(self, marca, anno, targa, revisione, carico):
+        super().__init__(marca, anno, targa, revisione)
+        self.__carico = carico
+        
+    def get_carico(self):
+        return self.__carico
+    def set_carico(self, carico):
+        self.__carico = carico
+    def descrivi(self):
+        return f"Camion: {self.get_marca()}, {self.get_anno()}, {self.get_targa()}, {self.get_revisione()}, {self.get_carico()} kg"
